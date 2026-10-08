@@ -1,0 +1,14 @@
+(() => {
+ const panels={
+  text:{label:'TEKS & CODING',title:'Model untuk aplikasi dan agent Anda.',description:'Dari pengolahan dokumen hingga percakapan pelanggan, pilih model sesuai tugas yang ingin diselesaikan.',providers:['OpenAI','Anthropic','Google','DeepSeek','Alibaba','xAI']},
+  image:{label:'GAMBAR',title:'Dari konsep visual hingga materi kampanye.',description:'Jelajahi generasi dan pengolahan gambar untuk ilustrasi, eksplorasi produk, serta materi pemasaran. Kemampuan pembuatan dan penyuntingan mengikuti model yang dipilih.',providers:['OpenAI','Google','ByteDance','xAI','Kling','Midjourney']},
+  video:{label:'VIDEO',title:'Enam pilihan provider untuk produksi video.',description:'Jelajahi AI video untuk konsep produk, kampanye, dan konten media. Pilih model sesuai kebutuhan generasi atau pengolahan video; jenis input, durasi, dan format mengikuti model yang tersedia.',providers:['Google','ByteDance','Alibaba','xAI','Kling','Midjourney']},
+  music:{label:'AUDIO & MUSIK',title:'Suara, musik, dan transkripsi untuk bisnis.',description:'Jelajahi audio dan text-to-speech dari OpenAI, generasi musik serta lirik dari SUNO, dan transkripsi audio dari XiaomiMiMO. Kemampuan dan ketentuan penggunaan mengikuti layanan yang dipilih.',providers:['OpenAI','SUNO','XiaomiMiMO']}
+ };
+ const tabs=[...document.querySelectorAll('[data-modality]')];
+ const get=id=>document.getElementById(id);
+ function select(key){const p=panels[key];tabs.forEach(t=>{const active=t.dataset.modality===key;t.setAttribute('aria-selected',String(active));t.tabIndex=active?0:-1;});get('modality-panel').setAttribute('aria-labelledby','tab-'+key);get('modality-label').textContent=p.label;get('modality-title').textContent=p.title;get('modality-description').textContent=p.description;get('modality-provider-heading').textContent=p.providers.length+' provider untuk kategori ini';get('modality-provider-list').innerHTML=p.providers.map(name=>`<button type="button" data-show-provider="${name}">${name}</button>`).join('');}
+ tabs.forEach((t,i)=>{t.addEventListener('click',()=>select(t.dataset.modality));t.addEventListener('keydown',e=>{let next;if(e.key==='ArrowRight')next=(i+1)%tabs.length;else if(e.key==='ArrowLeft')next=(i+tabs.length-1)%tabs.length;else if(e.key==='Home')next=0;else if(e.key==='End')next=tabs.length-1;else return;e.preventDefault();tabs[next].focus();select(tabs[next].dataset.modality);});});
+ get('modality-provider-list').addEventListener('click',e=>{const b=e.target.closest('[data-show-provider]');if(!b)return;document.querySelector('[data-filter="all"]').click();const search=get('provider-search');search.value=b.dataset.showProvider;search.dispatchEvent(new Event('input',{bubbles:true}));get('provider-grid').scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth',block:'center'});search.focus({preventScroll:true});});
+ select('text');
+})();

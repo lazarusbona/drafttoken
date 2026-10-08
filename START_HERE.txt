@@ -1,0 +1,36 @@
+TOKENKU — INTEGRASI DUA SIMULASI EFISIENSI AI
+Pembaruan 8 Oktober 2026
+
+PRATINJAU CEPAT
+Buka PREVIEW-SIMULASI.html langsung di browser. File ini mandiri dan tidak memerlukan folder assets, instalasi, API key, atau server. Font online opsional; jika offline memakai Arial.
+
+INTEGRASI KE WEB ASLI
+1. Backup versi web lama.
+2. Salin index.html, simulations.css, dan simulations.js ke folder website asli.
+3. Pertahankan folder assets milik website asli. Paket ini tidak menyertakan aset gambar/logo asli karena tidak dilampirkan.
+4. File app.js, catalog.js, gateway.js, modalities.js, styles.css, comparison.css, dan comparison.js disertakan persis dari set sumber terbaru (08–16) sebagai pendamping. Tidak diubah.
+5. Buka index.html. Bagian baru berada setelah analogi restoran, sebelum bagian audience dan katalog provider. Tautan navigasi/hero: #efisiensi.
+
+PENEMPATAN
+Analogi restoran → Simulasi efisiensi AI → Kebutuhan bisnis → Provider.
+Tab pertama: pilih model, pemeriksaan, eskalasi.
+Tab kedua: pilih model dan effort, empat strategi coding.
+CTA membuka formulir diskusi yang sudah ada. Formulir tetap prototipe, belum mengirim data.
+
+PENGUJIAN & BATASAN
+Simulasi berjalan sepenuhnya di browser; tidak memakai saldo/API atau menjalankan tes kode nyata. Semua lolos/gagal dan workload merupakan asumsi ilustratif. Tarif pada simulasi kedua adalah referensi OpenAI, bukan harga TokenKu.
+Perpindahan tab, tab browser tersembunyi, dan keluar dari bagian simulasi menghentikan animasi. Animasi mulai otomatis saat terlihat dan berulang setelah selesai. Pilihan strategi serta tab mendukung keyboard; reduced motion dihormati.
+Tidak ada deployment ke domain tokenku.ai pada paket ini.
+
+ASSET ASLI YANG DIPERTAHANKAN
+assets/tokenku-wordmark.svg
+assets/perbandingan-ai-restoran.png
+assets/Logo-Card_ChatGPT.svg
+assets/Logo-Card_Claude.svg
+assets/Logo-Card_Gemini.svg
+assets/Logo-Card_Deepseek.svg
+assets/Logo-Card_Qwen.svg
+assets/Logo-Card_Grok.svg
+
+
+Pembaruan 8 Oktober 2026: simulasi dipadatkan untuk mobile 9:16. Label router menjadi tokenku.ai. Animasi otomatis berjalan saat terlihat, berulang setelah selesai, dan berhenti sementara saat tab browser/area simulasi tidak terlihat. Pilihan strategi tetap tersedia. Ganti simulations.js, simulations.css, dan index.html bersamaan. PREVIEW-SIMULASI.html dapat dibuka langsung tanpa instalasi.
